@@ -41,27 +41,29 @@ refer https://github.com/apollographql/react-apollo<br/>
 <br/>
 12) or else use ApolloProvider/ApolloConsumer to get 'client' inside component and use client.query()<br/>
 ex:
-	class SomeNthChild extends React.component {
-	  render() {
-		return (
-		  <ApolloConsumer>
-			{client => (
-				<button
-				  onClick={async () => {
-					const { data } = await client.query({
-					  query: GET_DOG_PHOTO,
-					  variables: { breed: "bulldog" }
-					});
-					this.onDogFetched(data.dog);
-				  }}
-				>
-				  Click me!
-				</button>
-			)}
-		  </ApolloConsumer>
-		);
-	  }
-	}
+```javascript
+    class SomeNthChild extends React.component {
+        render() {
+        return (
+            <ApolloConsumer>
+            {client => (
+                <button
+                    onClick={async () => {
+                    const { data } = await client.query({
+                        query: GET_DOG_PHOTO,
+                        variables: { breed: "bulldog" }
+                    });
+                    this.onDogFetched(data.dog);
+                    }}
+                >
+                    Click me!
+                </button>
+            )}
+            </ApolloConsumer>
+        );
+        }
+    }
+```
 <br/><br/>
 13) or [without provider consumer => did not use provider consumer as I have only one child]
 send 'client' via prop and use it as this.props.client.query in child component

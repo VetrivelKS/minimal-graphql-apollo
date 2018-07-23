@@ -41,6 +41,7 @@ refer https://github.com/apollographql/react-apollo<br/>
 <br/>
 12) or else use ApolloProvider/ApolloConsumer to get 'client' inside component and use client.query()<br/>
 ex:
+
 ```javascript
     class SomeNthChild extends React.component {
         render() {
